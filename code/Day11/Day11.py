@@ -80,7 +80,7 @@ s = '无敌'
 v = s.join(v1)          #洪无敌吉无敌昌无敌宋无敌吉无敌昌无敌魏
 print(v)
 #设置长度，并将内容居中（最左边，最右边）
-test = '洪吉昌'
+test = 'code'
 v1 = test.center(20,'!')
 print(v1)
 v2 = test.ljust(20,'!')
@@ -90,7 +90,7 @@ print(v3)
 v4 = test.zfill(20)         #填充内容默认为0,内容在最右边
 print(v4)
 #断句，\t为制表符，\n为分行符
-test = 'name\tage\tschool\n洪吉昌\t19\t青海民族大学\n黄劢\t22\t青海民族大学\n吕嘉行\t20\t青海民族大学\n'
+test = 'name\tage\tschool\ncode\t19\t青海民族大学\n黄劢\t22\t青海民族大学\n吕嘉行\t20\t青海民族大学\n'
 v = test.expandtabs(20)
 print(v)
 #去除空白,去除\t,\n；去除指定字符
@@ -104,14 +104,14 @@ print(v)
 #格式化，将一个字符串的占位符替换成指定的量
 test = 'i an {name},age {a}'
 print(test)
-v = test.format_map({'name':'洪吉昌','a':19})
+v = test.format_map({'name':'code','a':19})
 print(v)
-v = test.format(name='洪吉昌',a=19)
+v = test.format(name='code',a=19)
 print(v)
 test = 'i am {0},age {1}'
-v = test.format('洪吉昌',19)
+v = test.format('code',19)
 #替换
-test = '洪吉昌'
+test = 'code'
 test1 = '大帅b'
 m = str.maketrans(test,test1)
 v = '洪吉昌你好'
@@ -147,7 +147,7 @@ print(v)
 test = '111111hjc!_['
 v = len(test)
 print(v)
-list = [11,22,33,'44','hjc','洪吉昌','_','!']
+list = [11,22,33,'44','hjc','code','_','!']
 v = len(list)
 print(v)
 #for循环

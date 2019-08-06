@@ -58,7 +58,7 @@ else:
 #死循环
 """
 while 1==1:
-    print('洪吉昌')
+    print('code')
 """
 #作业
 #1:使用while循环输入1 2 3 4 5 6   8 9 10
@@ -132,7 +132,7 @@ while n<4:
     n=n+1
     a1=input('请输入用户名:')
     a2=input('请输入密码:')
-    if a1 == '洪吉昌' and a2 == '123':
+    if a1 == 'code' and a2 == '123':
         print('登陆成功')
         break
     else:
@@ -152,7 +152,7 @@ while n<4:
 """
 # 判断某个东西是否在某个东西里包含
 """
-name='洪吉昌'
+name='code'
 if '洪昌' in name:    #not in :不在
     print('ok')
 else:
@@ -172,13 +172,13 @@ r = age.bit_length()
 print(r)
 """
 """
-name = '洪吉昌'
+name = 'code'
 if '洪吉' in name:
       print('你好帅')
 else:
       print('你好丑陋')
 
-name='洪吉昌'
+name='code'
 if '洪昌' not in name:    #not in :不在
      print('ok')
 else:
