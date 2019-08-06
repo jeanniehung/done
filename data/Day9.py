@@ -150,3 +150,45 @@ while n<4:
         print('用户名或密码错误')
     n=n+1
 """
+# 判断某个东西是否在某个东西里包含
+"""
+name='洪吉昌'
+if '洪昌' in name:    #not in :不在
+    print('ok')
+else:
+    print('error')
+"""
+#将字符串转换成数字
+"""
+a = '777'
+print(type(a),a)    #print(type()):输出括号内的数据类型
+b = int(a,base=8)
+print(type(b),b)
+"""
+#当前数字的二进制，至少n为来表示
+"""
+age = 4
+r = age.bit_length()
+print(r)
+"""
+"""
+name = '洪吉昌'
+if '洪吉' in name:
+      print('你好帅')
+else:
+      print('你好丑陋')
+
+name='洪吉昌'
+if '洪昌' not in name:    #not in :不在
+     print('ok')
+else:
+     print('error')
+
+a = 'e'
+b = int(a,base=16)
+# print(type(b),b)
+
+age = 10
+v = age.bit_length()
+print(v)
+"""
