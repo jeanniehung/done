@@ -62,15 +62,17 @@ print(dic)          #{'k1': 111, 2: '洪吉昌', 'k3': 'True', 'k4': '滚'}
 dic.update(k1=123,k4='滚')
 print(dic)          #{'k1': 123, 2: '洪吉昌', 'k3': 'True', 'k4': '滚'}
 """
-#11：删除并获取删除key对应的value值；当key不存在时，后可加参数，会返回参数；当可以存在时，加不加参数没影响
+#11：删除并获取删除key对应的value值；当key不存在时，后可加参数，会返回参数；当key存在时，加不加参数没影响
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
 v = dic.pop('k1',2)
+print(dic,v)        #{2: '洪吉昌', 'k3': 'True'} 18
+v = dic.pop('k4',2)
 print(dic,v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True'} 2
 #随机删除
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
 k,v = dic.popitem()
 print(k,v)          #k3 True
-#12：设置值，若key存在，获取当前key的值;若value值已存在，无影响；若不存在,设置，获取当前key值
+#12：设置新值，若key存在，获取当前key的值;若value值已存在，不改变；若不存在,设置，获取当前key值
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
 v = dic.setdefault('k1',1)
 print(dic,v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True'} 18
