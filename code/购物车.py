@@ -33,7 +33,9 @@ while True:
         i = input('请选择：')
         if i == '移除商品':
             while True:
-                print(iphone_list, count)
+                for i in iphone_list:
+                    print(i)
+                print(count)
                 i = input('请输入移除商品索引号码：')
                 i = int(i)
                 iphone_list.pop(i)
@@ -44,7 +46,9 @@ while True:
                     break
         else:
             while True:
-                print(iphone_list, count)
+                for i in iphone_list:
+                    print(i)
+                print(count)
                 i = input('请输入充值金额：')
                 i = int(i)
                 blance = s + i - count
@@ -52,5 +56,7 @@ while True:
                     break
                 else:
                     continue
+for i in iphone_list:
+    print(i, sep='\n')
+print(count,blance)
 
-print(iphone_list, count, blance)
