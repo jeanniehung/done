@@ -52,13 +52,55 @@ print(li[v])
 购买，如果商品总额大于总资产，提示账户余额不足，否则，购买成功。
 附加：可充值、某商品移除购物车
 """
-# s = input('请输入总资产：')
-# test = '{name}price{a}'
-# v = test.format(name='电脑'a=3000)
-# v1 = test.format(name='手机'a=1000)
-# v2 = test.format_map({'name':'鼠标垫''a':40})
-# v3 = test.format(name='游艇'a=10000)
-# print(v,v1,v2,v3)
+iphone = [
+    ["iphone 5s", 200],
+    ["iphone 6", 300],
+    ["iphone 8", 400],
+    ["iphone Xr", 500]
+]
+iphone_list = []
+count = 0
+# 要求用户输入总资产，例如：2000
+s = input('请输入总资产：')
+s = int(s)
+for i in iphone:
+    print(i, sep='\n')
+while True:
+    i = input('请输入商品序号0，1，2，3：')
+    if i.upper() == 'Q':
+        break
+    i = int(i)
+    iphone_lis = iphone[i]
+    iphone_list.append(iphone_lis)
+    count += iphone_lis[1]
+    if count > 2000:
+        print('余额不足，请选择移除商品或者充值购买')
+        i = input('请选择：')
+        if i == '移除商品':
+            while True:
+                print(iphone_list, count)
+                i = input('请输入移除商品索引号码：')
+                i = int(i)
+                iphone_list.pop(i)
+                count = count - iphone_list[i][1]
+                if count > 2000:
+                    continue
+                else:
+                    break
+        else:
+            while True:
+                print(iphone_list, count)
+                i = input('请输入充值金额：')
+                i = int(i)
+                blance = s + i - count
+                if blance >= 0:
+                    break
+                else:
+                    continue
+    else:
+        print(iphone_list, count, '可以购买')
+print(iphone_list, count, blance)
+
 
 
 #五：九九乘法表
@@ -164,22 +206,17 @@ print(v)
 # 十二：分页显示内容
 # a：通过for循环创建301条数据，数据类型不限制
 # b：分页，每页显示十条内容
-"""
-不会
-"""
-# test = ''
-# for i in range(1,302):
-#     s = 'alex'+'_'+str(i)+'\t''alex@live.com'+'_'+str(i)+'\t''pwd' + '_' + str(i)
-#     test = s
-#     print(test.expandtabs(10))
-#     v = input('请输入页码：')
-#     v1 = int(v)
-#     v2 = v1 % 10 + 1
-#     v3 = v1 % 10 + 9
-#     v4 = str[v2:v3]
-#     for i in v4:
-#         print(test[i])
-
+li = []
+for i in range(1,302):
+    s = 'alex'+'_'+str(i)+'\t''alex@live.com'+'_'+str(i)+'\t''pwd' + '_' + str(i)
+    li.append(s)
+    print(s.expandtabs(20))
+v = input('请输入页码：')
+v1 = int(v)
+v2 = (v1 - 1) * 10
+v3 = v1 * 10
+for i in range(v2,v3):
+    print(li[i])
 
 
 #十三:有1，2，3，4，5，6，7，8个数字，能组成多少个互不相同的两位数
