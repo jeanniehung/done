@@ -1,11 +1,3 @@
-#四、购物车
-"""
-功能要求：
-要求用户输入总资产，例如：2000
-显示商品列表，让用户根据序号选择商品，加入购物车
-购买，如果商品总额大于总资产，提示账户余额不足，否则，购买成功。
-附加：可充值、某商品移除购物车
-"""
 iphone = [
     ["iphone 5s", 200],
     ["iphone 6", 300],
@@ -28,35 +20,34 @@ while True:
     iphone_lis = iphone[i]
     iphone_list.append(iphone_lis)
     count += iphone_lis[1]
-    if count > 2000:
+
+    def test():
+        for i in iphone_list:
+            print(i)
+        print(count, s)
+    if count > s:
         print('余额不足，请选择移除商品或者充值购买')
         i = input('请选择：')
         if i == '移除商品':
             while True:
-                for i in iphone_list:
-                    print(i)
-                print(count)
+                test()
                 i = input('请输入移除商品索引号码：')
                 i = int(i)
                 iphone_list.pop(i)
                 count = count - iphone_list[i][1]
-                if count > 2000:
+                if count > s:
                     continue
                 else:
                     break
         else:
             while True:
-                for i in iphone_list:
-                    print(i)
-                print(count)
+                test()
                 i = input('请输入充值金额：')
                 i = int(i)
-                blance = s + i - count
-                if blance >= 0:
+                s = s + i
+                if count < s:
                     break
                 else:
                     continue
-for i in iphone_list:
-    print(i, sep='\n')
-print(count,blance)
+test()
 
