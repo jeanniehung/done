@@ -107,7 +107,7 @@ print(li)
 li = [11,22,3,4]
 li.reverse()
 print(li)
-#11:列表的排序
-li = ['洪吉昌','好帅','是']
-li.sort(reverse=False)          #True，False
+#11:列表的排序，元素只能是字符串
+li = ['洪吉昌','好帅','是的']
+li.sort(reverse=True)          #True，False
 print(li)

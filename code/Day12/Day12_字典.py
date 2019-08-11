@@ -43,17 +43,17 @@ print(v)
 #7:(重点）根据序列，创建字典，并指定key，value
 v = dict.fromkeys(['k1',2,'洪吉昌'],123)
 print(v)        #{'k1': 123, 2: 123, '洪吉昌': 123}
-#8:根据key取值，key不存在时，可通过参数指定默认值（None）给不存在的key，但是不显示在词典中
+#8:根据key取值，key不存在时，可通过参数指定值替代默认值（None）给不存在的key，但是不显示在词典中
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
 v = dic.get('1','帅气')
+print（dic,v）
 #9：输出字典的key，value还有kay和value配对
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
+v = dic.values()        #dict_values([18, '洪吉昌', 'True'])
 print(v)
-v = dic.values()
+v = dic.keys()          #dict_keys(['k1', 2, 'k3']
 print(v)
-v = dic.keys()
-print(v)
-v = dic.items()
+v = dic.items()         ##dict_items([('k1', 18), (2, '洪吉昌'), ('k3', 'True')])
 print(v)
 #10：更新,原有信息覆盖，新信息添加
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
@@ -63,29 +63,23 @@ dic.update(k1=123,k4='滚')
 print(dic)          #{'k1': 123, 2: '洪吉昌', 'k3': 'True', 'k4': '滚'}
 """
 #11：删除并获取删除key对应的value值；当key不存在时，后可加参数，会返回参数；当key存在时，加不加参数没影响
-dic = {'k1':18,2:'洪吉昌','k3':'True'}
-v = dic.pop('k1',2)
-print(dic,v)        #{2: '洪吉昌', 'k3': 'True'} 18
-v = dic.pop('k4',2)
-print(dic,v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True'} 2
+dic = {'k1': 18, 2: '洪吉昌', 'k3': 'True'}
+v = dic.pop('k1', 2)
+print(dic, v)        #{2: '洪吉昌', 'k3': 'True'} 18
+v = dic.pop('k4', 2)
+print(dic, v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True'} 2
 #随机删除
-dic = {'k1':18,2:'洪吉昌','k3':'True'}
-k,v = dic.popitem()
-print(k,v)          #k3 True
+dic = {'k1': 18, 2: '洪吉昌', 'k3': 'True'}
+k, v = dic.popitem()
+print(k, v)          #k3 True
 #12：设置新值，若key存在，获取当前key的值;若value值已存在，不改变；若不存在,设置，获取当前key值
-dic = {'k1':18,2:'洪吉昌','k3':'True'}
+dic = {'k1': 18, 2: '洪吉昌', 'k3': 'True'}
 v = dic.setdefault('k1',1)
-print(dic,v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True'} 18
-v = dic.setdefault('k11',18)
-print(dic,v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True', 'k11': 18} 18
-#13：更新,原有信息覆盖，新信息添加
-dic = {'k1':18,2:'洪吉昌','k3':'True'}
-dic.update({'k1':111,'k4':'滚'})
-print(dic)          #{'k1': 111, 2: '洪吉昌', 'k3': 'True', 'k4': '滚'}
-dic.update(k1=123,k4='滚')
-print(dic)          #{'k1': 123, 2: '洪吉昌', 'k3': 'True', 'k4': '滚'}
+print(dic, v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True'} 18
+v = dic.setdefault('k11', 18)
+print(dic, v)        #{'k1': 18, 2: '洪吉昌', 'k3': 'True', 'k11': 18} 18
 #14:判断是否在key里面，value里
-dic = {'k1':18,2:'洪吉昌','k3':'True'}
+dic = {'k1': 18, 2: '洪吉昌', 'k3': 'True'}
 v = 'k1' in dic
 print(v)
 v = '洪吉昌' in dic.values()
