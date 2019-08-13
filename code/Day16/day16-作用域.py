@@ -9,7 +9,7 @@
 #
 #     def bar():
 #         print(name)
-#     return bar
+#     return bar    # bar的内存地址
 #
 #
 # a = foo()           #  执行foo会得到bar的内存地址,可以赋给以后哥变量a
@@ -39,8 +39,9 @@
 # print(f(name))                      # ('alex_sb', 'alex_nb')
 """
 编程的方法论：
-面向过程编程
-函数式编程=编程语言定义的函数+数学意义的函数
+    ——面向过程编程
+    
+    ——函数式编程=编程语言定义的函数+数学意义的函数
     一：高阶函数
         1：函数接收的参数是一个函数名
             def foo(s):
@@ -57,10 +58,11 @@
                 print('my name is %s' % n)
                 return foo                      # my name is 洪吉昌
             bar('洪吉昌')('帅比')                #  帅比
+
             #     return foo('帅比')
-            # bar('洪吉昌')         等同于上两步骤操作                    
+            # bar('洪吉昌')                # 等同于上两步骤操作                    
             
-面向对象编程
+    ——面向对象编程
 """
 
 # 求阶层
@@ -81,27 +83,44 @@ map(func，array） array可迭代对象
 func（函数）可以是lambda x: x+1 的匿名函数
 也可以是自己定义的函数 def function（）：
 """
+# 下面是例子
+"""
 num_list = [1, 2, 3, 4, 9]
 
 
-def list_map(func, x):
+def hjc_func(func, array):
     new_list = []
-    for i in x:
+    for i in array:
         good = func(i)
         new_list.append(good)
     return new_list
 
 
-res = list_map(lambda x: x+1, num_list)
-print(res)
-res = list(map(lambda x: x+1, num_list))
-print(res)     # 和上式相同
-msg = 'hongjicahng'
-new_msg = list(map(lambda x: x.upper(), msg))
-print(new_msg)
+def add_one(x):
+    return x+1
 
-# res = list_map(lambda x: x**2, num_list)
-# print(res)
+
+res = hjc_func(add_one, num_list)
+print(res)
+
+res = list(map(add_one, num_list))
+print(res)
+
+res = list(map(lambda x: x+1, num_list))
+print(res) 
+
+res = list_map(lambda x: x**2, num_list)
+print(res)  
+"""
+
+msg = 'red'
+new_msg = list(map(lambda x: x.upper(), msg))
+print(new_msg)      # ['R', 'E', 'D']
+
+msg = 'red',
+new_msg = list(map(lambda x: x.upper(), msg))
+print(new_msg)     # ['RED']
+
 """
 # filter函数:过滤作用
 1：功能：遍历序列的每个元素，判断每个元素得倒布尔值，如果是True则保留下来
@@ -110,7 +129,7 @@ filter（func，array）
 """
 movie_people = ['a_sb', 'b_sb', 'c_sb', '洪吉昌']
 filter(lambda x: x.endswith('sb'), movie_people)
-print(list(filter(lambda x:  x.endswith('sb'), movie_people) ))
+print(list(filter(lambda x: not x.endswith('sb'), movie_people)))   # ['洪吉昌']
     
 
 """
@@ -118,12 +137,11 @@ reduce函数：
 1：功能：处理一个序列，然后序列进行合并操作
 2；格式：在python3的版本
 from functools import reduce # 从functools中调用reduce函数
-reduce（func，array，inint）
+reduce（func，array，init）
 array必须是两个参数
 reduce()还可以接收第3个可选参数，作为计算的初始值（init=n 作为默认参数）
 """
-
+from functools import reduce      # 调用函数写在文件开头，from不会出现黄线
 num_l = [1, 2, 3, 4, 5]
-from functools import reduce
-n = reduce(lambda x, y: x+y, num_l)
-print(n)
+r = reduce(lambda x, y: x+y, num_l, 100)
+print(r)

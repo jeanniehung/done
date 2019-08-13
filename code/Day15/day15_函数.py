@@ -78,37 +78,38 @@ print(name)     # 洪吉昌
 写一个问路代码
 要求：1：只有洪吉昌知道怎么走
      2：安照列表顺序一个问一个
+     3：问路名单只可以是列表
      3：使询问过程更贴近生活————》使用 import time函数增加时间
         ——函数合适
             import time
             time。sleep（停止时间长度）
 """
-#
-# li = ['魏宽怀', '洪省昌', '洪淑芳', '洪吉昌']        # 问路列表名单
+# li = ['魏宽怀', '洪省昌', '洪淑芳', '无敌帅王']
+# li_food = ['sb', 'asb', 'nab', '洪吉昌']
 #
 # import time
 #
 #
-# def ask_way(li):
+# def ask_way(array):
 #     print('*'*20)
-#     if len(li) == 0:
-#         return '没有人知道'
+#     if len(array) == 1:
+#         if array[0] != '洪吉昌':
+#             return '%s说,不好意思,我不清楚' % array[0]
 #
-#     person = li.pop(0)
+#     person = array.pop(0)
 #
 #     if person == '洪吉昌':
 #         return '%s说：直走，拐个弯就到' % person
 #
-#     print('%s说：我不知道，我帮你去问问%s' % (person, li[0]))
-#     time.sleep(3)
-#     res = ask_way(li)
-#     print('#'*20, '%s问的结果是：%s' % (person, res), sep='\n')
-#     return res
+#     print('%s说：我不知道，我帮你去问问%s' % (person, array[0]))
+#     time.sleep(1)
+#     good = ask_way(array)
+#     print('#'*20, '%s问的结果是：%s' % (person, good), sep='\n')
+#     return good
 #
 #
-# res = ask_way(li)
+# res = ask_way(li)                 # 传入问路列表
 # print('_'*20, res, sep='\n')
-
 """
 拓展：写一个购物列表
 要求：
@@ -116,23 +117,32 @@ print(name)     # 洪吉昌
 2：和售货员按着列表清单一个接着一个买
 3：更贴切生活，加上时间函数
 """
-# shopping_list = ['电脑', '充电器', '数码相机', 'phone']
+# shopping_list = [
+#                     ['电脑', 1000],
+#                     ['充电器', 100],
+#                     ['数码相机', 500],
+#                     ['phone', 300]
+#                  ]
+# my_list = []
+# for i in shopping_list:
+#     my_list.append(i)
+# print(my_list)
 #
 # import time
 #
 #
 # def shop(x):
 #     print('*'*20)
-#     if len(shopping_list) == 0:
-#         return '我不想买了，谢谢'
-#     good = shopping_list.pop(0)
-#     if good == 'phone':
-#         return '就是它了，我要买它'
-#     print('%s我不喜欢,可以拿一下%s给我看一下吗' % (good, shopping_list[0]))
-#     time.sleep(2)
-#     res = shop(shopping_list)
-#     return res
+#     if len(x) == 0:
+#         return '%x[0][1]太贵了，我不想买了，谢谢'
+#     good = x.pop(0)
+#     if good[0] == 'phone':
+#         return '我要买%s，给你%s元' % (good[0], good[1])
+#     print('%s我不喜欢,可以拿一下%s给我看一下吗' % (good[0], x[0][0]))
+#     time.sleep(1)
+#     new = shop(x)
+#     return new
 #
 #
-# res = shop(shopping_list)
+# res = shop(my_list)
 # print(res)
