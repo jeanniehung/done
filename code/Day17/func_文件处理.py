@@ -164,3 +164,6 @@ for i in data:
     PC_list.append(r)
 # 7：总和相加
 print(sum(PC_list))
+
+
+# 好low
