@@ -128,24 +128,39 @@ write_f.write(data.replace('alex', 'SB'))
 write_f.close()
 """
 # 1：
-# 先创建一个a.txt文件
+# 1:先创建一个a.txt文件
 from functools import reduce
 file = open('a.txt', 'w')
 file.write('apple 10 3\n''tesla 100000 1\n''mac 3000 2\n''lenovo 30000 3\n''chicken 10 3\n')
 file.close()
+# 2:提取文件内容
 read_f = open('a.txt', 'r')
 data = read_f.readlines()
-print(data)
-b = []
+read_f.close()
+# 3：去除字符串中的\n 和 空格
+PC_list = []
 for i in data:
     data1 = i.replace('\n', '')
     data2 = data1.strip('')
-    a = []
+# 4：只提取字符串里的数字到一个列表   （如果商品名称里有数字怎么办？）
+    num_str = []
     for j in data2:
         if j.isnumeric():
-            a.append(j)
-    num = a
-    r = reduce(lambda x, y: int(x)*int(y), num)
-    b.append(r)
-print(sum(b))
-# 明天处理
+            e = eval(str(j))
+            num_str.append(e)
+# 5：把字符串类型的数字转为数字类型，同时把最后一位和其他位数作为两个元素添加到一个新列表
+# 如果所有商品的购买数量不全是个位数怎么办？
+    num = []
+    price_str = num_str[0:-1]
+    price = ''
+    for z in price_str:
+        price += str(z)
+    price = int(price)
+    num.append(price)
+    count = int(num_str[-1])
+    num.append(count)
+# 6：计算每一次的乘积
+    r = reduce(lambda price, count: price*count, num)
+    PC_list.append(r)
+# 7：总和相加
+print(sum(PC_list))
