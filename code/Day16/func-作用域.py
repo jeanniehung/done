@@ -75,15 +75,19 @@
 #
 #
 # print(num(6))
+
+
 """
 # map函数:  
-1：功能：处理序列中的每个元素，得到的结果是一个可迭代对象（列表），该可迭代对象元素个数及位子与原来一样
+1：功能：处理序列中的每个元素，得到的结果是一个可迭代对象（列表），该可迭代对象元素个数及位置与原来一样
 2：格式：
 map(func，array） array可迭代对象
 func（函数）可以是lambda x: x+1 的匿名函数
 也可以是自己定义的函数 def function（）：
 """
+
 # 下面是例子
+
 """
 num_list = [1, 2, 3, 4, 9]
 
@@ -128,17 +132,17 @@ print(new_msg)     # ['RED']
 filter（func，array）
 """
 movie_people = ['a_sb', 'b_sb', 'c_sb', '洪吉昌']
-filter(lambda x: x.endswith('sb'), movie_people)
+filter(lambda x: x.endswith('sb'), movie_people)  # 一个列表的内存地址，该列表里面的元素是带'sb'的名字
 print(list(filter(lambda x: not x.endswith('sb'), movie_people)))   # ['洪吉昌']
     
 
 """
 reduce函数：
 1：功能：处理一个序列，然后序列进行合并操作
-2；格式：在python3的版本
+2；格式：在python3的版本，要写下一行的代码调用reduce函数
 from functools import reduce # 从functools中调用reduce函数
 reduce（func，array，init）
-array必须是两个参数
+func必须是两个参数
 reduce()还可以接收第3个可选参数，作为计算的初始值（init=n 作为默认参数）
 """
 from functools import reduce      # 调用函数写在文件开头，from不会出现黄线
