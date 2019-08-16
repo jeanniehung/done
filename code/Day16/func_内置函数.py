@@ -78,9 +78,9 @@ print(max(age_dict.values()))                   # 比较的是values
 print(max(zip(age_dict.values(), age_dict)))    # 比较的是values，同时显现对应的key
 
 age_list = [
-    {'name': '洪吉昌', 'age': 18},
+    {'name': '洪吉昌', 'age': 28},
     {'name': '魏宽怀', 'age': 20},
-    {'name': '洪淑芳', 'age': 28},
+    {'name': '洪淑芳', 'age': 18},
     {'name': '好省昌', 'age': 38}
 ]
 
@@ -88,4 +88,6 @@ m = max(age_list, key=lambda x: x.get('age'))
 print(m)
 m = max(age_list, key=lambda x: x['age'])
 print(m)        # {'name': '好省昌', 'age': 38}
+s = sorted(age_list, key=lambda x: x.get('age'))
+print(s)        # 按照年纪从小到大排序
 

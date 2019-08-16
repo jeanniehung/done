@@ -46,7 +46,7 @@ print(v)        #{'k1': 123, 2: 123, '洪吉昌': 123}
 #8:根据key取值，key不存在时，可通过参数指定值替代默认值（None）给不存在的key，但是不显示在词典中
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
 v = dic.get('1','帅气')
-print（dic,v）
+print（dic,v）   # {'k1': 18, 2: '洪吉昌', 'k3': 'True'} 帅气
 #9：输出字典的key，value还有kay和value配对
 dic = {'k1':18,2:'洪吉昌','k3':'True'}
 v = dic.values()        #dict_values([18, '洪吉昌', 'True'])

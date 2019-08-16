@@ -111,7 +111,7 @@ print(v)
 test = 'i am {0},age {1}'
 v = test.format('code',19)
 #替换
-test = 'code'
+test = '洪吉昌'
 test1 = '大帅b'
 m = str.maketrans(test,test1)
 v = '洪吉昌你好'

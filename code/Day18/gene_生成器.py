@@ -4,7 +4,7 @@
     所以生成器是一种可迭代对象
 # 二：生成器分类及在python的表现形式（两种）：
     1：生成器函数：
-        常规函数定义，但是使用yield返回值而不是return
+        常规函数定义，含有yield关键字，
 ——yield用法总结：
     1：把函数做成迭代器
     2：对比return，可以返回多个值，可以 挂起/保存 函数的运行状态
@@ -18,13 +18,35 @@ def func():
     yield 1
 
 
-g = func()
+g = func()              # 不会执行函数内部代码，只读取yield关键字内容
 print(g.__next__())
 print(g.__next__())
 print(g.__next__())
 print(g.__next__())
 # print(g.__next__())     # StopIteration
 
+——yield扩展
+# yield关键字的另外一种使用形式：表达式形式的yield
+
+
+def eater(name):
+    print('%s 准备开始吃饭啦' % name)
+    food_list = []
+    while True:
+        food = yield food_list
+        print('%s 吃了 %s' % (name, food))
+        food_list.append(food)
+
+
+g = eater('egon')
+g.send(None)  # 对于表达式形式的yield，在使用时，第一次必须传None，g.send(None)等同于next(g)
+g.send('蒸羊羔')
+g.send('蒸鹿茸')
+g.send('蒸熊掌')
+g.send('烧素鸭')
+g.close()
+# g.send('烧素鹅')
+# g.send('烧鹿尾')
 
     2：生成器表达式：
         类似列表指导，但是，生成器返回按需求产生结果，而不是一次构建一个结果列表
@@ -119,3 +141,29 @@ print(sum([i for i in range(10) if i > 4]))
 
 # 生成器表达式只是在使用是一个一个调用，节省内存
 print(sum(i for i in range(10) if i > 4))
+
+
+"""
+yield关键字的另外一种使用形式：表达式形式的yield
+"""
+
+
+def eater(name):
+    print('%s 准备开始吃饭啦' % name)
+    food_list = []
+    while True:
+        food = yield food_list
+        print('%s 吃了 %s' % (name, food))
+        food_list.append(food)
+
+
+g = eater('egon')
+g.send(None)  # 对于表达式形式的yield，在使用时，第一次必须传None，g.send(None)等同于next(g)
+g.send('蒸羊羔')
+g.send('蒸鹿茸')
+g.send('蒸熊掌')
+g.send('烧素鸭')
+g.close()
+# g.send('烧素鹅')
+# g.send('烧鹿尾')
+
