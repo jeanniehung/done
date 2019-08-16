@@ -89,12 +89,27 @@ file.close()
 由于不可以对一个文件读完操作又修改，所以建了一个新文件（new_1)来接收原文件修改的内容
 等于上面的修改文件，只是把修改的内容放到一个新的文件当中
 """
+# import os
 # with open('new', 'r') as read_f, \
-#         open('new_1', 'w') as write_f:       # \ 代表的是一行代码太长，分割到下一行
+#         open('new.swap', 'w') as write_f:       # \ 代表的是一行代码太长，分割到下一行
 #     data = read_f.readlines()
-#     write_f.writelines(data[0: 5])
+#     write_f.writelines(data[:-1])
+# os.remove('new')
+# os.rename('new.swap', 'new')
 
-
+"""
+文件去重
+"""
+# import os
+# with open('new', 'r', encoding='utf-8') as read_f,\
+#         open('new.swap', 'w', encoding='utf-8') as write_f:
+#     s = set()
+#     for line in read_f:
+#         if line not in s:
+#             s.add(line)
+#             write_f.write(line)
+# os.remove('new')
+# os.rename('new.swap', 'new')
 """
 #了解
 f.readable() #文件是否可读
@@ -114,23 +129,6 @@ mac 3000 2
 lenovo 30000 3
 chicken 10 3
 
-2. 修改文件内容，把文件中的alex都替换成SB
-# 先创建一个文件
-file = open('home_work', 'w')
-file.write('alex你好帅\n')
-file.write('alex你好帅\n')
-file.write('alex你好帅\n')
-file.write('alex你好帅\n')
-file.close()
-
-read_f = open('home_work', 'r')
-data = read_f.read()
-read_f.close()
-write_f = open('home_work', 'w')
-write_f.write(data.replace('alex', 'SB'))
-write_f.close()
-"""
-# 1：
 # # 1:先创建一个a.txt文件
 # from functools import reduce
 # file = open('a.txt', 'w')
@@ -167,6 +165,24 @@ write_f.close()
 #     PC_list.append(r)
 # # 7：总和相加
 # print(sum(PC_list))
+
+2. 修改文件内容，把文件中的alex都替换成SB
+# 先创建一个文件
+file = open('home_work', 'w')
+file.write('alex你好帅\n')
+file.write('alex你好帅\n')
+file.write('alex你好帅\n')
+file.write('alex你好帅\n')
+file.close()
+
+read_f = open('home_work', 'r')
+data = read_f.read()
+read_f.close()
+write_f = open('home_work', 'w')
+write_f.write(data.replace('alex', 'SB'))
+write_f.close()
+"""
+
 
 
 

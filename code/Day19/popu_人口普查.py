@@ -8,7 +8,7 @@ def get_pop():
 gene_pop = get_pop()
 # all_pop = sum(int(eval(i)['population']) for i in gene_pop)
 #  文件中全国人口数22023453330
-s_pop = []
+# s_pop = []
 for i in gene_pop:
     pop_num = int(eval(i)['population'])
     pop_province = eval(i)['name']
@@ -23,11 +23,6 @@ for i in gene_pop:
 # all_pop = sum([int(eval(i)['population']) for i in gene_pop])
 
 
-
-
-
-
-
 """
 1. 文件a.txt内容：每一行内容分别为商品名字，价钱，个数，求出本次购物花费的总钱数
 apple 10 3
@@ -36,23 +31,23 @@ mac 3000 2
 lenovo 30000 3
 chicken 10 3
 """
-# all_price = []
-#
-#
-# def count_price():
-#     with open('购物清单', 'r+', encoding='utf-8') as file:
-#         for line in file:
-#             yield line
-#
-#
-# gene_cp = count_price()
-# # for i in gene_cp:
-# #     i1 = int(eval(i)['价格'])
-# #     i2 = int(eval(i)['个数'])
-# #     p_c = i1 * i2
-# #     all_price.append(p_c)
-# # print(sum(all_price))
-# print(sum(eval(i)['价格']*eval(i)['个数'] for i in gene_cp))
+all_price = []
+
+
+def count_price():
+    with open('购物清单', 'r+', encoding='utf-8') as file:
+        for line in file:
+            yield line
+
+
+gene_cp = count_price()
+# for i in gene_cp:
+#     i1 = int(eval(i)['价格'])
+#     i2 = int(eval(i)['个数'])
+#     p_c = i1 * i2
+#     all_price.append(p_c)
+# print(sum(all_price))
+print(sum(eval(i)['价格']*eval(i)['个数'] for i in gene_cp))
 
 
 
