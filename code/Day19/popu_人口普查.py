@@ -2,17 +2,27 @@
 def get_pop():
     with open('全国各省人口数', 'r+', encoding='utf-8') as file:
         for line in file:
-            yield line
+            yield eval(line)
 
 
-gene_pop = get_pop()
+def get_bili():
+    gene_pop = get_pop()
+    pop_list = []
+    count = 0
+    for i in gene_pop:
+        pop_list.append(i)
+    for i in pop_list:
+        count += i['population']
+    for i in pop_list:
+        print('%s人口占全国总人口的比例是:%f%%' % (i['name'], i['population']/count))
+
 # all_pop = sum(int(eval(i)['population']) for i in gene_pop)
 #  文件中全国人口数22023453330
 # s_pop = []
-for i in gene_pop:
-    pop_num = int(eval(i)['population'])
-    pop_province = eval(i)['name']
-    print('%s人口占全国人口总数的比例是：%f%%' % (pop_province, pop_num/22023453330))
+# for i in gene_pop:
+#     pop_num = int(eval(i)['population'])
+#     pop_province = eval(i)['name']
+#     print('%s人口占全国人口总数的比例是：%f%%' % (pop_province, pop_num / 22023453330))
 #     s_pop.append(pop_num)
 # all_pop = sum(s_pop)
 # print('全国总人口：', all_pop)
