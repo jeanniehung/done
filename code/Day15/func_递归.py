@@ -17,13 +17,13 @@
             print(name)
         change_name()               # ['洪吉昌', '魏宽怀', '自己']
 函数中有global关键词：
-    ——有局部变量，会直接报错
+    ——有局部变量，警告⚠️
         name = ['洪吉昌', '魏宽怀']
         def change_name():
             name = '洪吉昌'
             global name
             print(name)
-        change_name()               # 直接报错
+        change_name()               # 警告⚠️
     ——无局部变量，读取全局变量，可以直接更改，若更改后对变量是不可变类型，可对其追加，删除操作
         name = ['洪吉昌', '魏宽怀']
         def change_name():
