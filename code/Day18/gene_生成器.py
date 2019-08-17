@@ -1,4 +1,5 @@
 """
+#   生成器只能遍历一次
 # 一：什么是生成器
     生成器相当于一种数据类型，它自动完成了迭代器协议（别的数据类型需要._iter_()才能完成迭代器协议）
     所以生成器是一种可迭代对象
@@ -91,56 +92,56 @@ g.close()
 
 """
 
-# 生成器函数
-
-
-def func():
-
-    yield [1, 2]
-    yield '好成绩'
-    yield (1, 'a')
-    yield 1
-
-
-g = func()
-print(g.__next__())
-print(g.__next__())
-print(g.__next__())
-print(g.__next__())
-# print(g.__next__())     # StopIteration
-
-
-# 三元表达式
-name = '洪吉昌'
-res = '帅哥' if name == '洪吉昌' else 'sb'
-print(res)  # 帅哥
-
-
-# 列表解析
-age_list = []
-for i in range(10):
-    age_list.append('鸡蛋%s' % i)
-# 列表里可以是三元或三元以下的表达式，但不可以超过三元
-age_list = ['鸡蛋%s' % i for i in range(10)]
-
-
-# 生成器表达式
-g = ('鸡蛋%s' % i for i in range(10))
-print(g.__next__())  # 鸡蛋0
-print(g.__next__())  # 鸡蛋1
-print(g.__next__())  # 鸡蛋2
-print(g.__next__())  # 鸡蛋3
-
-
-# example
-num_l = [5, 6, 7, 8, 9]
-print(sum(num_l))
-
-# 列表解析生成了列表在内存里，如果列表超级大，会卡死
-print(sum([i for i in range(10) if i > 4]))
-
-# 生成器表达式只是在使用是一个一个调用，节省内存
-print(sum(i for i in range(10) if i > 4))
+# # 生成器函数
+#
+#
+# def func():
+#
+#     yield [1, 2]
+#     yield '好成绩'
+#     yield (1, 'a')
+#     yield 1
+#
+#
+# g = func()
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+# # print(g.__next__())     # StopIteration
+#
+#
+# # 三元表达式
+# name = '洪吉昌'
+# res = '帅哥' if name == '洪吉昌' else 'sb'
+# print(res)  # 帅哥
+#
+#
+# # 列表解析
+# age_list = []
+# for i in range(10):
+#     age_list.append('鸡蛋%s' % i)
+# # 列表里可以是三元或三元以下的表达式，但不可以超过三元
+# age_list = ['鸡蛋%s' % i for i in range(10)]
+#
+#
+# # 生成器表达式
+# g = ('鸡蛋%s' % i for i in range(10))
+# print(g.__next__())  # 鸡蛋0
+# print(g.__next__())  # 鸡蛋1
+# print(g.__next__())  # 鸡蛋2
+# print(g.__next__())  # 鸡蛋3
+#
+#
+# # example
+# num_l = [5, 6, 7, 8, 9]
+# print(sum(num_l))
+#
+# # 列表解析生成了列表在内存里，如果列表超级大，会卡死
+# print(sum([i for i in range(10) if i > 4]))
+#
+# # 生成器表达式只是在使用是一个一个调用，节省内存
+# print(sum(i for i in range(10) if i > 4))
 
 
 """
@@ -157,13 +158,19 @@ def eater(name):
         food_list.append(food)
 
 
-g = eater('egon')
-g.send(None)  # 对于表达式形式的yield，在使用时，第一次必须传None，g.send(None)等同于next(g)
-g.send('蒸羊羔')
-g.send('蒸鹿茸')
-g.send('蒸熊掌')
-g.send('烧素鸭')
-g.close()
-# g.send('烧素鹅')
-# g.send('烧鹿尾')
+def shangchai(food_list):
 
+    g = eater('洪吉昌')
+    g.send(None)  # 对于表达式形式的yield，在使用时，第一次必须传None，g.send(None)等同于next(g)
+    for i in range(len(food_list)):
+        g.send(food_list[i])
+        # g.send('蒸鹿茸')
+        # g.send('蒸熊掌')
+        # g.send('烧素鸭')
+    g.close()               # 关闭send功能，之后send就报错
+    # g.send('烧素鹅')
+    # g.send('烧鹿尾')
+
+
+f_l = ['蒸羊羔', '蒸鹿茸', '蒸熊掌', '烧素鸭', '烧素鹅', '烧鹿尾']
+shangchai(f_l)
