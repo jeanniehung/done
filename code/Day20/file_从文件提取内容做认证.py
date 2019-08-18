@@ -19,7 +19,8 @@ def cer(cer_type='file'):
                 password = input('请输入密码:').strip()
                 with open('用户信息', 'r', encoding='utf-8') as file:
                     for item in file:
-                        item = eval(item)       # 文件里的内容都是字符串，要用eval提取出来
+                        item = eval(item)
+# 文件里的内容都是字符串，要用eval提取出来
                         if item['user_name'] == user_name and item['password'] == password:
                             current_user['user_name'] = user_name
                             current_user['login'] = True
