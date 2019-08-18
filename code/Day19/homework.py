@@ -122,6 +122,7 @@ print(str_count('hjCcS111洪吉昌'))
 可变长参数：*args ：只接收位置参数，或者列表，元祖,字典,和*[]格式
           **kwargs ：只接收关键字参数，和**{}格式
 """
+
 # 11:简述Python3中的range函数和Python2.7中的range函数有什么区别
 """
 Python3中使用range函数得到的是一个可迭代对象
@@ -137,7 +138,7 @@ str（类）————》'洪吉昌'（对象）
 # 13:内置函数 all 和 any 的区别
 """
 all()：括号里的每一个元素做bool运算，全为真才显示True，元素是'' [] () {} 中的任一一个也显示True
-any()：括号里的每一个元素做bool运算，全为真才显示True，元素是'' [] () {} 中的任一一个显示False
+any()：括号里的每一个元素做bool运算，一个为真就显示True，元素是'' [] () {} 中的任一一个显示False
 """
 # 14:将字符串'洪吉昌'转换成 UTF-8 编码的字节类型
 name = '洪吉昌'
@@ -222,17 +223,17 @@ l1 = [11, 22, 33, 44, 55]
 
 def num_33(args):
 
-        if args > 33:
+        if args > 33:       # filter函数会遍历出列表中的每一个元素进行判断
             return True
 
 
 print(list(filter(num_33, l1)))   # 实参是一个列表，所以用args
 
-print(list(filter(lambda x: not x > 33, l1)))
+print(list(filter(lambda x: x > 33, l1)))
 
 # b.利用filter、lambda 表达式获取 l1 中元素小于 33 的所有元素l1 = [11, 22, 33, 44, 55]
 l1 = [11, 22, 33, 44, 55]
-print(list(filter(lambda x: not x < 33, l1)))
+print(list(filter(lambda x: x < 33, l1)))
 
 # c.利用map、自定义函数将所有是奇数的元素加 100
 l1 = [11, 22, 33, 44, 55]
