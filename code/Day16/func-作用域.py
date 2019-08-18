@@ -57,7 +57,7 @@
             def bar(n):
                 print('my name is %s' % n)
                 return foo                      # my name is 洪吉昌
-            bar('洪吉昌')('帅比')                #  帅比
+            bar('洪吉昌')('帅比')                 #  帅比
 
             #     return foo('帅比')
             # bar('洪吉昌')                # 等同于上两步骤操作                    
