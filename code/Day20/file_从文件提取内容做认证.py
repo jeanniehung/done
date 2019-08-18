@@ -1,5 +1,5 @@
 """
-文件（file）模式处理认证装饰器
+数据库是文件（file）类型处理认证装饰器
 """
 current_user = {'user_name': None, 'login': False}
 
@@ -41,17 +41,17 @@ def cer(cer_type='file'):
 
 
 @cer()
-def interface(user_name):
+def interface():       # 这里的黄线是因为user_name这个形参和 wrapper 函数里面定义的全局变量重名了
     print('%s欢迎来到主页面' % user_name)
 
 
 @cer(cer_type='ldap')
-def home(user_name, assets):
+def home(assets):
     print('%s你的总资产是%s ' % (user_name, assets))
 
 
 @cer('sss')
-def shopping_cart(user_name):
+def shopping_cart():
     print('%s的购物车里有%s,%s,%s' % (user_name, '手机', '蓝牙耳机', '奶茶'))
 
 
