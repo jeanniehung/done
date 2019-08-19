@@ -63,6 +63,19 @@ file.close()
 #
 # print(file.writable())          # 是否可写
 
+"""
+open函数写的模式操作
+引号内还有引号，外层引号用单引号，内层引号用双引号
+"""
+# with open('测试文件', 'w', encoding='utf-8') as file:
+#     file.writelines(['{"user_name": "洪吉昌", "password": 123}\n'])
+#     file.write('{"user_name": "洪吉昌"}\n')
+#     file.write('{1: 1}\n')
+#     file.write('{("洪吉昌"): 1}\n')
+#     file.write('{(1, 2, ''): 1}\n')
+#     file.write('{'': 1}\n')
+#     file.writelines(['{"user_name": "洪淑芳", "password": 123}\n', ])
+
 
 """
 追加操作 a
