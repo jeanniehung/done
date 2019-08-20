@@ -176,7 +176,7 @@ print(v)
 
 #28：
 #制作随机验证码，不区分大小写,可无限次输入,直到输入正确为止
-while  True:
+while True:
     def check_code():
         import random
         checkcode = ''
