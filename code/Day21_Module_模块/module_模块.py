@@ -51,12 +51,12 @@ import的用法：
 第一步：
     import sys
     print(sys.path)         # 查看执行文件的目录，以列表的形式打印出来
-                    ['/Users/jeannie/PycharmProjects/learning_python/code/Day_21/Module_模块',
+                    ['/Users/jeannie/PycharmProjects/learning_python/code/Day_21/Day21_Module_模块',
                     '/Users/jeannie/PycharmProjects', ...等还有很多]
   
     A：在执行文件的子目录下
     
-    ————》假设调用模块（cal）在 Module_模块 下 web1/web2 这个包里
+    ————》假设调用模块（cal）在 Day21_Module_模块 下 web1/web2 这个包里
             from 包名1.包名2 import cal
             form web1.web2 import cal 
              
