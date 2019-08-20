@@ -24,17 +24,17 @@ def cer(cer_type='file'):
                         if item['user_name'] == user_name and item['password'] == password:
                             current_user['user_name'] = user_name
                             current_user['login'] = True
-                            res = func(user_name, *args, **kwargs)
+                            res = func(*args, **kwargs)
                             return res
                     else:
                         print('用户名或者密码错误')
             elif cer_type == 'ldap':
                 print('我不会玩')
-                res = func(user_name, *args, **kwargs)
+                res = func(*args, **kwargs)
                 return res
             else:
                 print('这是什么鬼认证类型')
-                res = func(user_name, *args, **kwargs)
+                res = func(*args, **kwargs)
                 return res
         return wrapper
     return certification
@@ -58,9 +58,11 @@ def shopping_cart():
 """
 user_name 是默认参数， wrapper 函数已经处理好了， 谁登录了谁就是 user_name
 """
-print('before用户状态:%s' % current_user)
-interface()
-print('after用户状态:%s' % current_user)
-home(1000)
-shopping_cart()
+if __name__ == '__main__':
+
+    print('before用户状态:%s' % current_user)
+    interface()
+    print('after用户状态:%s' % current_user)
+    home(1000)
+    shopping_cart()
 
