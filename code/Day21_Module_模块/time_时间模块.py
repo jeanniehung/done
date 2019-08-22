@@ -72,3 +72,25 @@ print(time.strptime('2018/08/23 20:23:23', '%Y/%m/%d %H:%M:%S'))
 %x：当前格式的日期，08/20/19————》2019年8月20号
 %X：当前格式的时间，17:38:15
 """
+
+# 动态显示进度条
+
+
+def progress(self=20):
+    import time
+    print('执行开始了'.center(self // 2, '-'))
+    start = time.time()                         # time.perf_counter() 相等的意思
+    for i in range(self+1):
+        a = '*' * i
+        b = '.' * (self-i)
+        c = (i / self) * 100
+        dur = time.time() - start
+        print('\r\033[30m{:^3.0f}%\033[0m\033[31m[{}->{}]\033[0m'   # ^ 左对齐 3 宽度
+              '\033[32m{:.2f}s\033[0m'.format(c, a, b, dur), end='')
+        time.sleep(0.2)
+    print('\n', '执行结束了'.center(self // 2, '-'))
+
+
+if __name__ == '__main__':
+    progress(40)
+

@@ -51,7 +51,7 @@ import的用法：
 第一步：
     import sys
     print(sys.path)         # 查看执行文件的目录，以列表的形式打印出来
-                    ['/Users/jeannie/PycharmProjects/learning_python/code/Day_21/Day21_Module_模块',
+                    ['/Users/jeannie/PycharmProjects/learning_python/code/Day21/Day21_Module_模块',
                     '/Users/jeannie/PycharmProjects', ...等还有很多]
   
     A：在执行文件的子目录下
