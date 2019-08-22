@@ -50,7 +50,7 @@ def home(assets):
     print('%s你的总资产是%s ' % (user_name, assets))
 
 
-@cer('sss')
+@cer('sss.py')
 def shopping_cart():
     print('%s的购物车里有%s,%s,%s' % (user_name, '手机', '蓝牙耳机', '奶茶'))
 

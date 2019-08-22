@@ -1,60 +1,60 @@
 """
 装饰器无参数
 """
-# user_dict = [
-#     {'username': '洪吉昌', 'password': '123'},
-#     {'username': '宋梦娜', 'password': '123'},
-#     {'username': '洪淑芳', 'password': '123'},
-#     {'username': '洪省昌', 'password': '123'},
-#     {'username': '魏宽怀', 'password': '123'}
-# ]
-# current_user = {'username': None, 'login': False}
-# """
-# current ————》 当前的
-# 定义一个登录状态，开始给'username' 用户名 和 'login' 登录状态都赋bool值为假的值，
-# 只要登录一次成功，把 username 传给 current_dict 的 username ；login 改为 True
-# 在写一个 if 判断，如果 username 和 login 都不是假，就直接执行下面的功能，无需再次认证certification
-# """
-#
-#
-# def certification(func):
-#     def wrapper(*args, **kwargs):
-#         if current_user['username'] and current_user['login']:
-#             res = func(*args, **kwargs)
-#             return res
-#         username = input('用户名：').strip()
-#         password = input('密码：').strip()
-#         for i in user_dict:
-#             if username == i['username'] and password == i['password']:
-#                 current_user['username'] = username
-#                 current_user['login'] = True
-#                 res = func(*args, **kwargs)
-#                 return res
-#         else:
-#             print('用户名或密码错误')
-#     return wrapper
-#
-#
-# @certification
-# def interface(name):
-#     print('%s欢迎来到京东' % name)
-#
-#
-# @certification
-# def home(name):
-#     print('%s欢迎回家' % name)
-#
-#
-# @certification
-# def shopping_cart(name):
-#     print('%s你的购物车里有%s，%s，%s' % (name, '手机', '蓝牙耳机', '奶茶妹妹'))
-#
-#
-# print('之前的登录状态:', current_user)
-# interface('洪吉昌')
-# print('之后的登录状态:', current_user)
-# home('洪吉昌')
-# shopping_cart('洪吉昌')
+user_dict = [
+    {'username': '洪吉昌', 'password': '123'},
+    {'username': '宋梦娜', 'password': '123'},
+    {'username': '洪淑芳', 'password': '123'},
+    {'username': '洪省昌', 'password': '123'},
+    {'username': '魏宽怀', 'password': '123'}
+]
+current_user = {'username': None, 'login': False}
+"""
+current ————》 当前的
+定义一个登录状态，开始给'username' 用户名 和 'login' 登录状态都赋bool值为假的值，
+只要登录一次成功，把 username 传给 current_dict 的 username ；login 改为 True
+在写一个 if 判断，如果 username 和 login 都不是假，就直接执行下面的功能，无需再次认证certification
+"""
+
+
+def certification(func):
+    def wrapper(*args, **kwargs):
+        if current_user['username'] and current_user['login']:
+            res = func(*args, **kwargs)
+            return res
+        username = input('用户名：').strip()
+        password = input('密码：').strip()
+        for i in user_dict:
+            if username == i['username'] and password == i['password']:
+                current_user['username'] = username
+                current_user['login'] = True
+                res = func(*args, **kwargs)
+                return res
+        else:
+            print('用户名或密码错误')
+    return wrapper
+
+
+@certification
+def interface(name):
+    print('%s欢迎来到京东' % name)
+
+
+@certification
+def home(name):
+    print('%s欢迎回家' % name)
+
+
+@certification
+def shopping_cart(name):
+    print('%s你的购物车里有%s，%s，%s' % (name, '手机', '蓝牙耳机', '奶茶妹妹'))
+
+
+print('之前的登录状态:', current_user)
+interface('洪吉昌')
+print('之后的登录状态:', current_user)
+home('洪吉昌')
+shopping_cart('洪吉昌')
 
 """
 装饰器有参数————》闭包概念完成，在最外层传入参数，内部每一层都可以使用
@@ -126,7 +126,7 @@ def home(name):
     print('%s欢迎回家' % name)
 
 
-@cer(cer_type='sss')
+@cer(cer_type='sss.py')
 def shopping_cart(name):
     print('%s你的购物车里有%s，%s，%s' % (name, '手机', '蓝牙耳机', '奶茶妹妹'))
 
