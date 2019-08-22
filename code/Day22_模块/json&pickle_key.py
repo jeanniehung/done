@@ -55,10 +55,10 @@ print(str(man), type(str(man))  ——————》"{'hello': '是的'}" 字�
 原始方案
 """
 # dic = {"name": "洪吉昌"}
-# with open("测试", "w") as write_f:
+# with open("测试.conf", "w") as write_f:
 #     dic_str = '{"name": "洪吉昌"}'    # 转为这种格式才可以被写到文件中
 #     write_f.write(dic_str)
-# with open("测试", "r") as read_f:
+# with open("测试.conf", "r") as read_f:
 #     data = read_f.read()
 #     data = eval(data)               # 将字符串的数据类型提取出来
 #     print(data, type(data))         # 这样才可以拿到一个字典
