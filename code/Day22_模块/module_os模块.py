@@ -3,6 +3,11 @@ os模块是与操作系统交叉的一个接口:对文件，目录的操作
 """
 import os
 """
+文件操作时
+"""
+os.rename('old_name', 'new_name')
+os.remove('old_name')
+"""
 等同于终端操作
 """
 print(os.getcwd())  # 当前执行文件的目录
@@ -25,13 +30,15 @@ os.rename('old_name', 'new_name')   # 重命名文件，目录
 """
 文件绝对路径问题
 """
-print(os.path.abspath('sss'))    # 返回 sss 规范化的绝对路径
-print(os.path.split('绝对路径'))
+print(os.path.abspath('module_os模块'))    # 返回 module_os模块 规范化的绝对路径
+path = '/Users/jeannie/PycharmProjects/learning_python/code/Ddy23_模块/module_os模块'
+print(os.path.split(path))
 # 用一个元祖装 sss 分割 ('/Users/jeannie/PycharmProjects/learning_python/code/Day22_模块', 'sss.py')
-print(os.path.dirname('sss.py'))    # 元祖的一个元素
-print(os.path.basename('sss.py'))   # 元祖的第二个元素，如何path以／或\结尾，那么就会返回空值
+print(os.path.dirname(path))    # 元祖的一个元素
+print(os.path.basename(path))   # 元祖的第二个元素，如何path以／或\结尾，那么就会返回空值
 print(os.path.join('/Users/jeannie', 'PycharmProjects'))        # 路径拼接
-print(os.path.exists('sss.py'))     # 如果path存在，返回True；如果path不存在，返回False
+print(os.path.exists('sss.py'))     # 如果path存在，返回True；如果path不存在，返回False，带上扩展名字
+print(os.path.getsize(path))        # 文件大小，需要带扩展名
 print(os.path.isabs('sss'))      # 如果path是绝对路径，返回True
 print(os.path.isfile('sss'))     # 如果path是一个存在的文件，返回True。否则返回False
 print(os.path.isdir('sss'))     # 如果path是一个存在的目录，则返回True。否则返回False
@@ -46,4 +53,21 @@ print(os.stat('sss.py'))
 """
 os.path.getatime('path')  # 返回path所指向的文件或者目录的最后存取时间
 os.path.getmtime('path')  # 返回path所指向的文件或者目录的最后修改时间
-os.path.getsize('path')   # 返回path的大小
+
+
+# 规范化路径
+os.path.normpath()
+"""
+路径处理问题————》 获得当前文件的上三级目录的绝对路径
+"""
+# 推荐使用方式 一
+path = os.path.normpath(os.path.join(
+    os.path.abspath(__file__),
+    os.pardir,
+    os.pardir,
+    os.pardir)
+)
+print(path)
+# 方式二不推荐
+path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+print(path)

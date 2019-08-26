@@ -5,10 +5,10 @@ shelve: shelve模块比pickle模块简单，只有一个open函数，返回类�
 建的文件看不懂
 """
 import shelve
-f = shelve.open(r'shelve文件')
+f = shelve.open(r'shelve文件')        # 文件可以不存在
 f['stu1_info'] = 1        # 等号前面是 key 后面是 value
 f['stu2_info'] = {'name': '洪吉昌', 'age': 18}     # value 是python的字典类型还可以继续 key 取值
-f['school_info']={'website': 'http://www.pypy.org', 'city': 'beijing'}
+f['school_info'] = {'website': 'http://www.pypy.org', 'city': 'beijing'}
 
 print(f['school_info']['city'])     # 文件得是开启状态才可以查看打印
 

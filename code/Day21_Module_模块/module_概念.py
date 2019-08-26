@@ -1,6 +1,20 @@
 """
-python中，一个.py文件就是一个模块
+python中，一个包含一组功能的.py文件就是一个模块
 
+在python中，模块的使用方式都是一样的，但其实细说的话，模块可以分为四个通用类别：　
+    1：在python中编写的.py文件
+    2：已被编译为共享库或DLL的C或C++扩展
+    3：把一系列模块组织到一起的文件夹（文件夹下有以下__init__.py文件，该文件夹称为包）
+    4：使用 c 编写并链接到 python 解释器到内置模块 re json logging
+我们可以从sys.module中找到当前已经加载的模块，sys.module是一个字典，内部包含模块名与模块对象的映射，
+该字典决定了导入模块时是否需要重新导入。
+
+为模块起别名：
+    import time as my
+    my.sleep(0.1)
+
+导入多个模块：
+    import re,sys,os,time
 """
 
 # 执行文件的路径问题
@@ -45,7 +59,8 @@ import的用法：
         from 模块 import *                    # 不推荐使用
             from mod_func import *
             print(add(1, 2), sub(2, 1), sep='\n)
-
+    好处：使用起来方便了
+    坏处：容易与当前执行文件中的名字冲突,当前文件定义的函数和模块里的函数一样，当前文件的函数会被覆盖
 二：执行文件和调用模块不在同一目录下：（调用特定变量和调用所有变量方式和第一步相同）
 
 第一步：
@@ -93,7 +108,7 @@ if __name__ == '__main__':
 
 # __file__的用法
 """
-print(__file__):查看当前文件的绝对路径————》pycharm 自己做的，本来只是 module_模块.py 文件名
+print(__file__):查看当前文件的绝对路径————》pycharm 自己做的，本来只是 module_概念.py 文件名
 
 import os
 print(os.path.abspath(__file__))
@@ -107,5 +122,5 @@ print(BASE_DIR)
 在哪里都被认可是当前文件的上一级目录的绝对路径
 
 """
-import os
-print(os.path.abspath(__file__))
+# import os
+# print(os.path.abspath(__file__))

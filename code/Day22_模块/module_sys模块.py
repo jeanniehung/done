@@ -6,6 +6,7 @@
 # print(sys.path)         # 返回模块的搜索路径
 # print(sys.platform)     # 返回操作系统的平台名称 darwin————》该台设备
 # print(sys.version)      # 或得 python 解释器版本信息
+# print(sys.maxsize)      # 文件最大存储字节量
 # print(sys.argv)         # 命令行参数列表,第一个元素是程序本身的路径
 # sys.exit()的用法————》退出程序，只有0是正常退出
 """
@@ -60,25 +61,27 @@ sys.argv[0]表示代码本身文件路径,所以从参数1开始,表示获取的
 """
 实现打印文件传输的进度条
 """
-# import sys,time
+# import sys, time
 #
 #
-# def progress(percent, width=50):
-#     if percent >= 1:
-#         percent = 1
-#     show_str = ('%%-%ds' % width) % (int(percent*width) * '.')  # 宽度*百分比取整对应长度的 .
-#     print('\r%s %d%%' % (show_str, int(100*percent)),  # \r 是光标重新回到头部,覆盖之前的字符
-#           file=sys.stdout, flush=True, end='')
+# def progress(self, width=50):
+#     start_time = time.time()
+#     if self > 1:
+#         self = 1
+#     time.sleep(0.8)
+#     left = ('%%-%ds' % width) % (int(self * width) * '.')
+#     run_time = time.time() - start_time
+#     print('\r%-3.0f%% %s %.2fs' % (self * 100, left, run_time), file=sys.stdout, flush=True, end='')
 #
 #
-# data_size = 1025
-# receive_size = 0
-#
-# while receive_size < data_size:
-#     time.sleep(0.2)                         # 模拟数据传输延迟
-#     receive_size += 10                     # 每次接收10
-#     percent = receive_size/data_size       # 接收的比例
-#     progress(percent, width=30)
+# if __name__ == '__main__':
+#     data_size = 1024
+#     receive_size = 0
+#     while receive_size < data_size:
+#         time.sleep(0.2)                         # 模拟数据传输延迟
+#         receive_size += 10                     # 每次接收10
+#         percent = receive_size/data_size       # 接收的比例
+#         progress(percent, width=30)
 
 
 """
@@ -124,6 +127,35 @@ sys.argv[0]表示代码本身文件路径,所以从参数1开始,表示获取的
     数字    长度
     %%      %
 """
+"""
+文件传输进度条
+"""
+# import sys, time, random
+#
+#
+# def progress(self, width=50):
+#
+#     start_time = time.time()
+#     if self > 1:
+#         self = 1
+#     for i in range(width):
+#         time.sleep(0.1)
+#         left = i * '.'
+#         right = (width - i) * '#'
+#         run_time = time.time() - start_time
+#         print('\r%.0f%% %s%s %.2fs' % (self * 100, left, right, run_time),
+#               file=sys.stdout, flush=True, end='')
+#
+#
+# if __name__ == '__main__':
+#     date_size = 1024
+#     receive_size = 0
+#     while receive_size < date_size:
+#         time.sleep(0.2)
+#         receive_size += random.randint(40, 60)
+#         percentage = receive_size / date_size
+#         progress(percentage, 40)
+
 
 
 
