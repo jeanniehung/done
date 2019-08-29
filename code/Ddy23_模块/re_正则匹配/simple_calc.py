@@ -160,7 +160,7 @@ if __name__ == '__main__':
         # 把表达式传入 执行支架 函数里进行处理，并且接收返回结果
         e_b = exec_bracket(inp)
         # 打印返回结果
-        print(e_b)
+        print('\033[33m结果是\033[0m', '\033[31m%s\033[0m' % e_b)
 
 
 # def compute_mul_div(self):
