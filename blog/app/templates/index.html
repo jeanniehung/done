@@ -1,8 +1,0 @@
-{% extends 'base.html' %}
-{% block content %}
-{% for post in posts %}
-<div>
-    <p>{{ post.author.username }}: {{ post.body }}</p>
-</div>
-{% endfor %}
-{% endblock %}
